@@ -1,71 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>外贸官网 | Global Sourcing & Export Partner</title>
-  <meta name="description" content="外贸官网 helps importers source, customize, inspect, consolidate, and ship consumer goods from Asia to global markets." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Field Notes | Personal Blog</title>
   <style>
     :root {
-      --ink: #17212b;
-      --muted: #5d6874;
-      --line: #d9e0e7;
-      --paper: #f7f9fb;
-      --white: #ffffff;
-      --teal: #0f766e;
-      --teal-dark: #0c5f59;
-      --copper: #c9713b;
-      --sun: #f2b84b;
-      --steel: #2d4a5c;
-      --shadow: 0 18px 48px rgba(23, 33, 43, 0.13);
+      --forest: #103d2e;
+      --deep: #09271f;
+      --ink: #151816;
+      --muted: #66786b;
+      --sage: #8ba58f;
+      --copper: #b8793b;
+      --paper: #f5f0e8;
+      --paper-2: #ebe3d7;
+      --white: #fffaf2;
+      --line: rgba(16, 61, 46, .18);
+      --shadow: 0 28px 80px rgba(9, 39, 31, .18);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Segoe UI", Arial, Helvetica, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
-      background: var(--white);
-      line-height: 1.5;
+      font-family: var(--sans);
+      letter-spacing: 0;
+      background:
+        radial-gradient(circle at 14% 8%, rgba(184, 121, 59, .13), transparent 28rem),
+        linear-gradient(180deg, var(--paper), #faf6ee 52%, var(--paper-2));
     }
 
-    img {
-      display: block;
-      max-width: 100%;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .5;
+      background-image: url("data:image/svg+xml,%3Csvg width='900' height='620' viewBox='0 0 900 620' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23103d2e' stroke-opacity='.14' stroke-width='1.2'%3E%3Cpath d='M-70 120c130-84 252-86 366-7 92 64 190 67 294 10 102-57 210-52 324 16'/%3E%3Cpath d='M-80 190c148-76 286-72 414 12 96 63 198 62 306-3 96-57 202-58 318-2'/%3E%3Cpath d='M-80 270c162-60 314-47 456 38 102 61 210 54 324-21 96-64 205-74 327-31'/%3E%3Cpath d='M-70 356c160-40 313-18 459 66 105 60 216 45 333-45 92-71 202-90 330-58'/%3E%3Cpath d='M-60 448c144-22 286 5 426 82 108 60 222 34 342-79 91-86 206-113 344-81'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 58rem auto;
+      background-position: center top;
+      mix-blend-mode: multiply;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input { font: inherit; letter-spacing: 0; }
+    p, h1, h2, h3 { margin: 0; }
 
-    button,
-    input,
-    select,
-    textarea {
-      font: inherit;
-    }
+    .page { position: relative; overflow: hidden; }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
 
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(255, 255, 255, 0.94);
-      border-bottom: 1px solid rgba(217, 224, 231, 0.9);
-      backdrop-filter: blur(16px);
+      z-index: 10;
+      background: rgba(16, 61, 46, .95);
+      color: var(--white);
+      border-bottom: 1px solid rgba(255, 250, 242, .14);
+      backdrop-filter: blur(18px);
     }
 
     .nav {
-      width: min(1180px, calc(100% - 40px));
-      min-height: 72px;
-      margin: 0 auto;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -76,1099 +75,869 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      font-weight: 800;
-      color: var(--ink);
-      white-space: nowrap;
+      font-size: .96rem;
+      font-weight: 750;
+    }
+
+    .scroll-link {
+      appearance: none;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      letter-spacing: 0;
+      cursor: pointer;
     }
 
     .brand-mark {
       width: 38px;
       height: 38px;
+      border: 1px solid rgba(255, 250, 242, .4);
+      border-radius: 6px;
       display: grid;
       place-items: center;
-      border-radius: 8px;
-      color: var(--white);
-      background: linear-gradient(135deg, var(--teal), var(--steel));
-      box-shadow: 0 8px 22px rgba(15, 118, 110, 0.22);
+      color: #d9a15d;
     }
 
-    .brand-mark svg {
-      width: 22px;
-      height: 22px;
-    }
+    .brand-mark svg { width: 24px; height: 24px; }
 
-    .nav-links {
-      display: flex;
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links .scroll-link, .nav-action {
+      min-height: 40px;
+      display: inline-flex;
       align-items: center;
-      gap: 28px;
-      color: #334150;
-      font-size: 0.94rem;
+      border-radius: 6px;
+      font-size: .9rem;
+    }
+
+    .nav-links .scroll-link {
+      padding: 0 12px;
+      color: rgba(255, 250, 242, .78);
+    }
+
+    .nav-links .scroll-link:hover, .nav-links .scroll-link:focus-visible {
+      color: var(--white);
+      background: rgba(255, 250, 242, .1);
+      outline: none;
+    }
+
+    .nav-action {
+      gap: 10px;
+      padding: 0 16px;
+      border: 1px solid rgba(216, 161, 93, .74);
+      background: rgba(184, 121, 59, .18);
+      color: var(--white);
       font-weight: 650;
     }
 
-    .nav-links a {
-      padding: 8px 0;
-      border-bottom: 2px solid transparent;
-    }
-
-    .nav-links a:hover {
-      color: var(--teal);
-      border-color: var(--teal);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .menu-toggle {
-      width: 42px;
-      height: 42px;
+    .menu {
       display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255, 250, 242, .32);
+      border-radius: 6px;
+      background: transparent;
+      color: var(--white);
       place-items: center;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--white);
-      color: var(--ink);
       cursor: pointer;
     }
 
-    .menu-toggle svg {
-      width: 22px;
-      height: 22px;
+    .menu span, .menu span::before, .menu span::after {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: currentColor;
+      position: relative;
+    }
+
+    .menu span::before { position: absolute; top: -6px; }
+    .menu span::after { position: absolute; top: 6px; }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      padding: 72px 0 44px;
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(420px, 1.1fr);
+      align-items: center;
+      gap: 54px;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: 5.4rem;
+      line-height: .95;
+      font-weight: 500;
+      color: var(--deep);
+    }
+
+    .hero-text p {
+      margin-top: 24px;
+      max-width: 520px;
+      color: #526357;
+      font-size: 1.18rem;
+      line-height: 1.8;
+    }
+
+    .actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .btn {
-      min-height: 44px;
+      min-height: 48px;
+      padding: 0 20px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
-      padding: 0 18px;
-      border: 1px solid transparent;
-      border-radius: 8px;
-      font-size: 0.94rem;
+      gap: 10px;
+      border: 1px solid var(--forest);
+      border-radius: 6px;
+      background: var(--forest);
+      color: var(--white);
       font-weight: 750;
       cursor: pointer;
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-      white-space: nowrap;
+      transition: transform .18s ease, box-shadow .18s ease;
     }
 
-    .btn svg {
+    .arrow {
       width: 18px;
       height: 18px;
       flex: 0 0 auto;
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
+    .btn:hover, .btn:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(16, 61, 46, .22);
+      outline: none;
     }
 
-    .btn-primary {
-      color: var(--white);
-      background: var(--teal);
-      box-shadow: 0 12px 26px rgba(15, 118, 110, 0.24);
+    .btn.secondary {
+      background: rgba(255, 250, 242, .5);
+      color: var(--forest);
+      border-color: rgba(16, 61, 46, .26);
+      box-shadow: none;
     }
 
-    .btn-primary:hover {
-      background: var(--teal-dark);
-    }
-
-    .btn-secondary {
-      color: var(--ink);
-      background: var(--white);
-      border-color: rgba(255, 255, 255, 0.74);
-    }
-
-    .btn-outline {
-      color: var(--ink);
-      background: transparent;
-      border-color: var(--line);
-    }
-
-    .hero {
-      position: relative;
-      min-height: 72vh;
+    .stats {
+      margin-top: 44px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
       display: grid;
-      align-items: center;
-      overflow: hidden;
-      color: var(--white);
-      background: #17212b;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
 
-    .hero::before {
+    .stats strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.36rem;
+      font-weight: 500;
+      color: var(--forest);
+    }
+
+    .stats span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.45;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 580px;
+      overflow: hidden;
+      border: 1px solid rgba(16, 61, 46, .24);
+      border-radius: 8px;
+      background: var(--deep);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 580px;
+      object-fit: cover;
+      filter: saturate(.94) contrast(1.04);
+    }
+
+    .hero-card::before {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(12, 24, 33, 0.9) 0%, rgba(12, 24, 33, 0.72) 42%, rgba(12, 24, 33, 0.24) 100%),
-        url("https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1800&q=82") center / cover;
-      transform: scale(1.02);
+        linear-gradient(90deg, rgba(9, 39, 31, .5), transparent 45%),
+        linear-gradient(180deg, transparent 50%, rgba(9, 39, 31, .68));
+      z-index: 1;
     }
 
-    .hero-inner {
-      position: relative;
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
-      padding: 78px 0 76px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: #dff8f5;
-      font-size: 0.82rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
+    .hero-card::after {
       content: "";
-      width: 34px;
-      height: 2px;
-      background: var(--sun);
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(255, 250, 242, .34);
+      border-radius: 6px;
+      z-index: 2;
+      pointer-events: none;
     }
 
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
-
-    h1 {
-      max-width: 760px;
-      margin-bottom: 22px;
-      font-size: 4rem;
-      line-height: 1.02;
-      letter-spacing: 0;
-    }
-
-    .hero-copy {
-      max-width: 650px;
-      margin-bottom: 34px;
-      color: #e7eef2;
-      font-size: 1.18rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 44px;
-    }
-
-    .hero-stats {
+    .compass {
+      position: absolute;
+      top: 34px;
+      right: 34px;
+      z-index: 3;
+      width: 72px;
+      height: 72px;
+      border: 1px solid rgba(255, 250, 242, .36);
+      border-radius: 50%;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 178px));
-      gap: 12px;
+      place-items: center;
+      color: #d9a15d;
+      background: rgba(16, 61, 46, .28);
+      backdrop-filter: blur(8px);
     }
 
-    .stat {
-      min-height: 92px;
-      padding: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
+    .caption {
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      bottom: 30px;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      color: var(--white);
     }
 
-    .stat strong {
-      display: block;
-      font-size: 1.55rem;
-      line-height: 1.1;
+    .caption h2 {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      line-height: 1.04;
+      font-weight: 500;
     }
 
-    .stat span {
-      display: block;
-      margin-top: 6px;
-      color: #d8e5ea;
-      font-size: 0.86rem;
+    .caption p {
+      max-width: 190px;
+      text-align: right;
+      color: rgba(255, 250, 242, .78);
+      font-size: .88rem;
+      line-height: 1.5;
     }
 
-    .section {
-      padding: 86px 0;
+    .featured {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 250, 242, .44);
     }
 
-    .section-tight {
-      padding: 64px 0;
-    }
-
-    .wrap {
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .section-head {
-      max-width: 740px;
-      margin-bottom: 38px;
+    .featured .wrap {
+      padding: 30px 0;
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 32px;
     }
 
     .label {
-      margin-bottom: 10px;
-      color: var(--teal);
-      font-size: 0.8rem;
-      font-weight: 850;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      margin-bottom: 14px;
-      font-size: 2.35rem;
-      line-height: 1.12;
-      letter-spacing: 0;
-    }
-
-    .lead {
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .trust-band {
-      border-bottom: 1px solid var(--line);
-      background: var(--paper);
-    }
-
-    .trust-grid {
-      min-height: 112px;
-      display: grid;
-      grid-template-columns: 1.1fr repeat(4, 1fr);
-      gap: 20px;
-      align-items: center;
-    }
-
-    .trust-title {
-      color: #3d4b58;
+      color: var(--copper);
+      font-size: .84rem;
       font-weight: 750;
     }
 
-    .trust-logo {
-      min-height: 54px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--white);
-      color: #617180;
-      font-size: 0.84rem;
-      font-weight: 850;
+    .featured h2, .section-title h2, .about h2, .newsletter h2 {
+      font-family: var(--serif);
+      font-weight: 500;
+      color: var(--deep);
     }
 
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .service-card,
-    .market-card,
-    .step,
-    .contact-panel {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--white);
-      box-shadow: 0 12px 34px rgba(23, 33, 43, 0.06);
-    }
-
-    .service-card {
-      min-height: 256px;
-      padding: 24px;
-    }
-
-    .icon-box {
-      width: 46px;
-      height: 46px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 22px;
-      border-radius: 8px;
-      color: var(--teal);
-      background: #e4f5f2;
-    }
-
-    .icon-box svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    h3 {
-      margin-bottom: 10px;
-      font-size: 1.12rem;
-      line-height: 1.25;
-    }
-
-    .service-card p,
-    .market-card p,
-    .step p,
-    .contact-panel p {
-      margin-bottom: 0;
+    .featured h2 { font-size: 2.2rem; line-height: 1.1; }
+    .featured p, .section-title p, .newsletter p {
+      margin-top: 8px;
       color: var(--muted);
-      font-size: 0.95rem;
+      line-height: 1.7;
     }
 
-    .products {
-      background: var(--paper);
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .product-card {
-      min-height: 390px;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--white);
-      box-shadow: 0 18px 40px rgba(23, 33, 43, 0.08);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      background: #dde5ec;
-    }
-
-    .product-body {
-      padding: 22px;
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
-    }
-
-    .tag {
-      min-height: 28px;
+    .text-link {
+      min-height: 44px;
       display: inline-flex;
       align-items: center;
-      padding: 0 10px;
-      border-radius: 999px;
-      color: #4b5c69;
-      background: #edf2f6;
-      font-size: 0.78rem;
+      gap: 9px;
+      color: var(--forest);
       font-weight: 750;
+      white-space: nowrap;
     }
 
-    .sourcing {
+    .journal { padding: 88px 0 96px; }
+
+    .section-title {
+      margin-bottom: 34px;
       display: grid;
-      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-      gap: 52px;
-      align-items: center;
+      grid-template-columns: minmax(0, .82fr) minmax(260px, .55fr);
+      align-items: end;
+      gap: 40px;
     }
 
-    .sourcing-image {
-      position: relative;
-      min-height: 520px;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-    }
-
-    .sourcing-image img {
-      width: 100%;
-      height: 100%;
-      min-height: 520px;
-      object-fit: cover;
-    }
-
-    .image-note {
-      position: absolute;
-      left: 20px;
-      right: 20px;
-      bottom: 20px;
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: 14px;
-      align-items: center;
-      padding: 16px;
-      border-radius: 8px;
-      color: var(--white);
-      background: rgba(12, 24, 33, 0.82);
-      backdrop-filter: blur(10px);
-    }
-
-    .image-note strong {
-      font-size: 1.28rem;
+    .section-title h2 {
+      font-size: 3.4rem;
       line-height: 1;
     }
 
-    .image-note span {
-      color: #dbe7ed;
-      font-size: 0.9rem;
-    }
-
-    .check-list {
-      display: grid;
-      gap: 14px;
-      margin: 28px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .check-list li {
-      display: grid;
-      grid-template-columns: 24px 1fr;
-      gap: 12px;
-      color: #40505d;
-      font-weight: 650;
-    }
-
-    .check-list svg {
-      width: 22px;
-      height: 22px;
-      color: var(--teal);
-    }
-
-    .process {
-      background: #f1f5f8;
-    }
-
-    .process-grid {
+    .filters {
+      position: relative;
+      width: min(100%, 344px);
+      max-width: 100%;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .step {
-      min-height: 222px;
-      padding: 24px;
-      position: relative;
-    }
-
-    .step-number {
-      width: 40px;
-      height: 40px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 32px;
-      border-radius: 50%;
-      color: var(--white);
-      background: var(--steel);
-      font-weight: 850;
-    }
-
-    .markets-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: 36px;
-      align-items: stretch;
-    }
-
-    .market-map {
-      min-height: 440px;
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
-        #203748;
-      color: var(--white);
-      box-shadow: var(--shadow);
-    }
-
-    .market-map img {
-      width: 100%;
-      height: 100%;
-      min-height: 440px;
-      object-fit: cover;
-      opacity: 0.56;
-      mix-blend-mode: screen;
-    }
-
-    .market-copy {
-      position: absolute;
-      inset: auto 28px 28px 28px;
-    }
-
-    .market-copy h2 {
-      margin-bottom: 10px;
-    }
-
-    .market-copy p {
-      max-width: 520px;
-      margin-bottom: 0;
-      color: #dde8ee;
-    }
-
-    .market-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .market-card {
-      min-height: 210px;
-      padding: 24px;
-    }
-
-    .market-card strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--copper);
-      font-size: 0.86rem;
-      text-transform: uppercase;
-    }
-
-    .contact {
-      background:
-        linear-gradient(90deg, rgba(15, 118, 110, 0.92), rgba(45, 74, 92, 0.92)),
-        url("https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=1600&q=82") center / cover;
-      color: var(--white);
-    }
-
-    .contact-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 0.86fr) minmax(320px, 0.62fr);
-      gap: 42px;
-      align-items: center;
-    }
-
-    .contact h2 {
-      font-size: 2.65rem;
-    }
-
-    .contact p {
-      max-width: 660px;
-      color: #e8f3f1;
-      font-size: 1.08rem;
-    }
-
-    .contact-panel {
-      padding: 28px;
-      color: var(--ink);
-    }
-
-    .form-grid {
-      display: grid;
-      gap: 12px;
-    }
-
-    .field {
-      min-height: 48px;
-      width: 100%;
+      margin-bottom: 28px;
+      padding: 4px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      padding: 0 14px;
-      color: var(--ink);
-      background: #fbfcfd;
+      background: rgba(255, 250, 242, .62);
+      overflow: hidden;
+    }
+
+    .filter-indicator {
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      left: 4px;
+      width: calc((100% - 8px) / 4);
+      border-radius: 6px;
+      background: var(--forest);
+      box-shadow: 0 10px 20px rgba(16, 61, 46, .18);
+      transform: translate3d(0, 0, 0);
+      transition: transform .3s cubic-bezier(.22, 1, .36, 1);
+      will-change: transform;
+      pointer-events: none;
+    }
+
+    .filters button {
+      position: relative;
+      z-index: 1;
+      min-height: 38px;
+      border: 0;
+      border-radius: 6px;
+      padding: 0 12px;
+      color: var(--muted);
+      background: transparent;
+      font-size: .88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: color .2s ease;
+    }
+
+    .filters button.active {
+      color: var(--white);
+    }
+
+    .filters button:focus-visible {
+      outline: 2px solid rgba(184, 121, 59, .7);
+      outline-offset: -3px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .post {
+      min-height: 438px;
+      display: grid;
+      grid-template-rows: 220px 1fr;
+      overflow: hidden;
+      border: 1px solid rgba(16, 61, 46, .16);
+      border-radius: 8px;
+      background: rgba(255, 250, 242, .7);
+      box-shadow: 0 16px 38px rgba(16, 61, 46, .08);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .post:hover {
+      transform: translateY(-4px);
+      border-color: rgba(184, 121, 59, .45);
+      box-shadow: 0 26px 48px rgba(16, 61, 46, .16);
+    }
+
+    .thumb { position: relative; overflow: hidden; background: var(--deep); }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .94;
+      filter: saturate(.86) contrast(1.06);
+    }
+
+    .post:nth-child(2) .thumb img, .post:nth-child(5) .thumb img { object-position: 68% center; }
+    .post:nth-child(3) .thumb img, .post:nth-child(6) .thumb img { object-position: 34% center; }
+
+    .thumb::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, transparent 42%, rgba(9, 39, 31, .52)),
+        url("data:image/svg+xml,%3Csvg width='420' height='220' viewBox='0 0 420 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23fffaf2' stroke-opacity='.28' stroke-width='1'%3E%3Cpath d='M-20 78c65-36 125-36 180 0 47 31 93 34 138 9 45-25 91-24 138 4'/%3E%3Cpath d='M-24 112c76-32 146-29 210 10 47 29 96 29 147 1 48-27 96-25 145 6'/%3E%3Cpath d='M-30 148c89-26 169-16 240 28 52 32 104 28 157-11 49-36 102-39 161-9'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: cover;
+    }
+
+    .post-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--copper);
+      font-size: .78rem;
+      font-weight: 750;
+    }
+
+    .post h3 {
+      font-family: var(--serif);
+      font-size: 1.72rem;
+      line-height: 1.12;
+      font-weight: 500;
+      color: var(--deep);
+    }
+
+    .post p {
+      color: #607064;
+      line-height: 1.65;
+      font-size: .96rem;
+    }
+
+    .post-link {
+      margin-top: auto;
+      width: max-content;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--forest);
+      font-size: .9rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .post-link:hover,
+    .post-link:focus-visible {
+      color: var(--copper);
       outline: none;
     }
 
-    textarea.field {
-      min-height: 108px;
-      resize: vertical;
-      padding-top: 12px;
+    .about {
+      position: relative;
+      overflow: hidden;
+      background: var(--deep);
+      color: var(--white);
     }
 
-    .field:focus {
-      border-color: var(--teal);
-      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.14);
+    .about::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .85;
+      background:
+        radial-gradient(circle at 78% 22%, rgba(216, 161, 93, .22), transparent 25rem),
+        url("data:image/svg+xml,%3Csvg width='900' height='540' viewBox='0 0 900 540' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23fffaf2' stroke-opacity='.1' stroke-width='1.1'%3E%3Cpath d='M-40 120c110-70 216-73 318-9 92 58 183 57 273-4 99-67 203-70 312-8'/%3E%3Cpath d='M-44 180c123-64 241-62 354 7 89 54 183 50 281-11 96-60 198-60 306 0'/%3E%3Cpath d='M-50 248c139-54 270-43 394 35 88 55 184 47 288-24 93-63 195-69 307-17'/%3E%3Cpath d='M-50 324c147-39 286-21 418 53 93 52 193 39 300-38 91-66 195-78 311-34'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 62rem auto;
+      background-position: right center;
     }
 
-    .site-footer {
-      padding: 34px 0;
-      color: #d6e0e6;
-      background: #17212b;
-    }
-
-    .footer-inner {
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
-      display: flex;
+    .about .wrap {
+      position: relative;
+      z-index: 1;
+      padding: 86px 0;
+      display: grid;
+      grid-template-columns: minmax(0, .78fr) minmax(300px, .52fr);
       align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      font-size: 0.9rem;
+      gap: 76px;
     }
 
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
+    .about h2 {
+      color: var(--white);
+      font-size: 3.35rem;
+      line-height: 1.03;
     }
+
+    .about p {
+      margin-top: 22px;
+      color: rgba(255, 250, 242, .74);
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+
+    .author {
+      border-left: 1px solid rgba(255, 250, 242, .24);
+      padding-left: 34px;
+    }
+
+    .initials {
+      width: 92px;
+      height: 92px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(216, 161, 93, .56);
+      border-radius: 8px;
+      background: rgba(255, 250, 242, .06);
+      color: #d9a15d;
+      font-family: var(--serif);
+      font-size: 2.4rem;
+    }
+
+    .author dl { margin: 26px 0 0; display: grid; gap: 16px; }
+    .author dt { color: rgba(216, 161, 93, .94); font-size: .78rem; font-weight: 800; }
+    .author dd { margin: 5px 0 0; color: rgba(255, 250, 242, .82); line-height: 1.5; }
+
+    .newsletter { padding: 88px 0; }
+    .newsletter-inner {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(320px, .7fr);
+      gap: 54px;
+      align-items: center;
+      border-top: 1px solid var(--line);
+      padding-top: 50px;
+    }
+
+    .newsletter h2 { font-size: 3.1rem; line-height: 1.04; }
+
+    form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+    }
+
+    input {
+      min-height: 52px;
+      width: 100%;
+      padding: 0 16px;
+      border: 1px solid rgba(16, 61, 46, .22);
+      border-radius: 6px;
+      background: rgba(255, 250, 242, .72);
+      color: var(--deep);
+      outline: none;
+    }
+
+    input:focus {
+      border-color: var(--copper);
+      box-shadow: 0 0 0 4px rgba(184, 121, 59, .12);
+    }
+
+    .form-note {
+      min-height: 22px;
+      margin-top: 12px;
+      color: var(--forest);
+      font-weight: 700;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .footer {
+      padding: 26px 0;
+      background: var(--ink);
+      color: rgba(255, 250, 242, .72);
+    }
+
+    .footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: .88rem;
+    }
+
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links .scroll-link { padding: 0; color: inherit; }
+    .footer-links .scroll-link:hover, .footer-links .scroll-link:focus-visible { color: var(--white); outline: none; }
 
     @media (max-width: 980px) {
-      .nav-links,
-      .nav-actions .btn-outline {
-        display: none;
-      }
-
-      .menu-toggle {
-        display: grid;
-      }
-
-      .nav.open {
-        align-items: flex-start;
-        padding: 14px 0;
-      }
-
-      .nav.open .nav-links {
+      .nav { min-height: 68px; }
+      .menu { display: grid; }
+      .nav-links {
         position: absolute;
-        left: 20px;
-        right: 20px;
-        top: 72px;
-        display: grid;
-        gap: 6px;
-        padding: 14px;
-        border: 1px solid var(--line);
+        top: 68px;
+        left: 14px;
+        right: 14px;
+        display: none;
+        padding: 12px;
+        border: 1px solid rgba(255, 250, 242, .12);
         border-radius: 8px;
-        background: var(--white);
-        box-shadow: var(--shadow);
+        background: rgba(16, 61, 46, .98);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, .22);
       }
-
-      h1 {
-        font-size: 3.2rem;
-      }
-
-      h2 {
-        font-size: 2rem;
-      }
-
-      .trust-grid,
-      .service-grid,
-      .process-grid,
-      .sourcing,
-      .markets-layout,
-      .contact-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .trust-grid {
-        padding: 22px 0;
-      }
+      .nav-links.open { display: grid; }
+      .nav-links .scroll-link { min-height: 46px; }
+      .nav-action { display: none; }
+      .hero, .section-title, .about .wrap, .newsletter-inner { grid-template-columns: 1fr; }
+      .hero { padding: 54px 0 36px; gap: 34px; }
+      h1 { font-size: 4.4rem; }
+      .hero-card, .hero-card img { min-height: 470px; }
+      .featured .wrap { grid-template-columns: 1fr; align-items: start; gap: 14px; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .author { border-left: 0; border-top: 1px solid rgba(255, 250, 242, .24); padding-left: 0; padding-top: 30px; }
     }
 
-    @media (max-width: 680px) {
-      .nav {
-        width: min(100% - 28px, 1180px);
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(calc(100% - 28px), 362px);
+        margin-left: 14px;
+        margin-right: auto;
+      }
+      h1 { font-size: 3.2rem; }
+      .hero-text p { font-size: 1.02rem; }
+      .stats { grid-template-columns: 1fr; gap: 16px; }
+      .hero-card, .hero-card img { min-height: 390px; }
+      .compass { width: 58px; height: 58px; top: 26px; right: 26px; }
+      .caption { left: 24px; right: 24px; bottom: 24px; display: grid; }
+      .caption p { text-align: left; }
+      .featured h2, .section-title h2, .about h2, .newsletter h2 { font-size: 2.45rem; }
+      .filters { width: 100%; }
+      .grid { grid-template-columns: 1fr; }
+      .post { min-height: 400px; }
+      form { grid-template-columns: 1fr; }
+      .footer .wrap { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
+        animation-duration: .001ms !important;
       }
 
-      .nav-actions .btn-primary {
-        display: none;
-      }
-
-      .hero {
-        min-height: 76vh;
-      }
-
-      .hero-inner,
-      .wrap,
-      .footer-inner {
-        width: min(100% - 28px, 1180px);
-      }
-
-      .hero-inner {
-        padding: 58px 0 54px;
-      }
-
-      h1 {
-        font-size: 2.45rem;
-      }
-
-      .hero-copy {
-        font-size: 1.02rem;
-      }
-
-      .hero-stats,
-      .product-grid,
-      .market-list {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 66px 0;
-      }
-
-      .section-tight {
-        padding: 48px 0;
-      }
-
-      .service-card,
-      .step,
-      .market-card {
-        min-height: auto;
-      }
-
-      .sourcing-image,
-      .sourcing-image img,
-      .market-map,
-      .market-map img {
-        min-height: 360px;
-      }
-
-      .image-note {
-        grid-template-columns: 1fr;
-      }
-
-      .contact h2 {
-        font-size: 2.05rem;
-      }
-
-      .contact-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
+      .filter-indicator {
+        transition-duration: .3s !important;
       }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav" id="nav" aria-label="Primary navigation">
-      <a class="brand" href="#top" aria-label="外贸官网 home">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 11h18" />
-            <path d="M6 15h12" />
-            <path d="M8 19h8" />
-            <path d="M12 3l6 8H6l6-8Z" />
-          </svg>
-        </span>
-        外贸官网
-      </a>
-      <div class="nav-links" id="navLinks">
-        <a href="#services">Services</a>
-        <a href="#products">Products</a>
-        <a href="#process">Process</a>
-        <a href="#markets">Markets</a>
-      </div>
-      <div class="nav-actions">
-        <a class="btn btn-outline" href="mailto:sales@auroratrade.example">Email Us</a>
-        <a class="btn btn-primary" href="#contact">Get Quote</a>
-        <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 7h16" />
-            <path d="M4 12h16" />
-            <path d="M4 17h16" />
-          </svg>
+  <div class="page">
+    <header class="site-header">
+      <nav class="nav wrap" aria-label="Primary navigation">
+        <button class="brand scroll-link" type="button" data-scroll="top" aria-label="Field Notes home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M7 32 18 18l8 10 6-7 9 11" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 36h30" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+          </span>
+          <span>FIELD NOTES</span>
         </button>
-      </div>
-    </nav>
-  </header>
-
-  <main id="top">
-    <section class="hero" aria-label="Global trade homepage hero">
-      <div class="hero-inner">
-        <div class="eyebrow">Export supply chain partner</div>
-        <h1>Reliable sourcing, export, and fulfillment for growing importers.</h1>
-        <p class="hero-copy">外贸官网 connects global buyers with audited factories, clear production timelines, strict quality control, and consolidated shipping from Asia to your destination market.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">
-            Request a Quote
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14" />
-              <path d="M13 5l7 7-7 7" />
-            </svg>
-          </a>
-          <a class="btn btn-secondary" href="#products">View Product Lines</a>
+        <button class="menu" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+        <div class="nav-links" id="navLinks">
+          <button class="scroll-link" type="button" data-scroll="journal">Journal</button>
+          <button class="scroll-link" type="button" data-scroll="gear">Gear</button>
+          <button class="scroll-link" type="button" data-scroll="about">About</button>
+          <button class="scroll-link" type="button" data-scroll="newsletter">Newsletter</button>
         </div>
-        <div class="hero-stats" aria-label="Company highlights">
-          <div class="stat">
-            <strong>42+</strong>
-            <span>destination markets supported</span>
+        <button class="nav-action scroll-link" type="button" data-scroll="newsletter">Subscribe <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero wrap" aria-labelledby="heroTitle">
+        <div class="hero-text">
+          <h1 id="heroTitle">Field Notes</h1>
+          <p>Outdoor essays, gear reflections, and slow travel journals for people who like their routes honest, their packs lighter, and their mornings quiet.</p>
+          <div class="actions">
+            <button class="btn scroll-link" type="button" data-scroll="featured">Read the latest <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button class="btn secondary scroll-link" type="button" data-scroll="about">About the author</button>
           </div>
-          <div class="stat">
-            <strong>680</strong>
-            <span>factory audits completed</span>
-          </div>
-          <div class="stat">
-            <strong>96%</strong>
-            <span>on-time shipment record</span>
+          <div class="stats" aria-label="Blog highlights">
+            <div><strong>48</strong><span>published trail and gear notes</span></div>
+            <div><strong>12</strong><span>routes mapped with packing lists</span></div>
+            <div><strong>6 yr</strong><span>writing from camps, cabins, and airports</span></div>
           </div>
         </div>
-      </div>
-    </section>
+        <div class="hero-card" aria-label="Mountain trail image">
+          <img src="assets/field-notes-hero.png" alt="A quiet mountain trail through evergreen ridges in morning light">
+          <div class="compass" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="36" height="36" fill="none"><circle cx="24" cy="24" r="17" stroke="currentColor" stroke-width="2"/><path d="m29 19-5 15-5-15 15-5-5 5Z" fill="currentColor"/></svg>
+          </div>
+          <div class="caption">
+            <h2>The Mountain List</h2>
+            <p>Routes, kit notes, and small lessons from long days outside.</p>
+          </div>
+        </div>
+      </section>
 
-    <section class="trust-band section-tight" aria-label="Buyer types">
-      <div class="wrap trust-grid">
-        <div class="trust-title">Built for importers, distributors, ecommerce teams, and private-label brands.</div>
-        <div class="trust-logo">RETAIL</div>
-        <div class="trust-logo">WHOLESALE</div>
-        <div class="trust-logo">AMAZON FBA</div>
-        <div class="trust-logo">PRIVATE LABEL</div>
-      </div>
-    </section>
+      <section class="featured" id="featured" aria-labelledby="featuredTitle">
+        <div class="wrap">
+          <div class="label">Featured</div>
+          <div>
+            <h2 id="featuredTitle">Pack Light, Think Deep</h2>
+            <p>A practical note on choosing fewer things, moving with more attention, and leaving room for weather.</p>
+          </div>
+          <button class="text-link scroll-link" type="button" data-scroll="journal">Open journal <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </section>
 
-    <section class="section" id="services">
+      <section class="journal wrap" id="journal" aria-labelledby="journalTitle">
+        <div class="section-title">
+          <h2 id="journalTitle">Latest Journal</h2>
+          <p>Notes for routes, camp routines, weather windows, and the equipment decisions that make a trip feel simple.</p>
+        </div>
+        <div class="filters" role="tablist" aria-label="Filter journal posts">
+          <span class="filter-indicator" aria-hidden="true"></span>
+          <button class="active" type="button" data-filter="all" aria-selected="true">All</button>
+          <button type="button" data-filter="trail" aria-selected="false">Trail</button>
+          <button type="button" data-filter="gear" aria-selected="false" id="gear">Gear</button>
+          <button type="button" data-filter="notes" aria-selected="false">Notes</button>
+        </div>
+        <div class="grid">
+          <article class="post" data-category="trail">
+            <div class="thumb"><img src="assets/field-notes-hero.png" alt="Mountain trail with layered forest ridges"></div>
+            <div class="post-body"><div class="meta"><span>Trail</span><span>May 08</span></div><h3>Three ridgelines before breakfast</h3><p>A compact route plan for mornings when the weather gives you exactly four clean hours.</p><button class="post-link" type="button">Read note</button></div>
+          </article>
+          <article class="post" data-category="gear">
+            <div class="thumb"><img src="assets/field-notes-hero.png" alt="Evergreen mountain landscape in morning light"></div>
+            <div class="post-body"><div class="meta"><span>Gear</span><span>Apr 26</span></div><h3>The quiet value of a better shell</h3><p>What changes when rainwear breathes, packs small, and never asks for attention.</p><button class="post-link" type="button">Read note</button></div>
+          </article>
+          <article class="post" data-category="notes">
+            <div class="thumb"><img src="assets/field-notes-hero.png" alt="Mountain path and misted valley"></div>
+            <div class="post-body"><div class="meta"><span>Notes</span><span>Apr 14</span></div><h3>Why slow travel still needs a plan</h3><p>A personal system for leaving space in the day without letting the day drift away.</p><button class="post-link" type="button">Read note</button></div>
+          </article>
+          <article class="post" data-category="gear">
+            <div class="thumb"><img src="assets/field-notes-hero.png" alt="Trail through pine trees with warm sunlight"></div>
+            <div class="post-body"><div class="meta"><span>Gear</span><span>Mar 31</span></div><h3>A small kit for uncertain weather</h3><p>Layering choices, repair tape, dry bags, and the few extras that earn their weight.</p><button class="post-link" type="button">Read note</button></div>
+          </article>
+          <article class="post" data-category="trail">
+            <div class="thumb"><img src="assets/field-notes-hero.png" alt="Distant mountain ridges under a bright sky"></div>
+            <div class="post-body"><div class="meta"><span>Trail</span><span>Mar 18</span></div><h3>Reading a map like a conversation</h3><p>Contour lines, wind exposure, water stops, and the small signs that make routes legible.</p><button class="post-link" type="button">Read note</button></div>
+          </article>
+          <article class="post" data-category="notes">
+            <div class="thumb"><img src="assets/field-notes-hero.png" alt="Quiet green valley with a trail leading forward"></div>
+            <div class="post-body"><div class="meta"><span>Notes</span><span>Mar 02</span></div><h3>Camp coffee and better questions</h3><p>A short essay on stillness, useful discomfort, and writing before the signal returns.</p><button class="post-link" type="button">Read note</button></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="about" id="about" aria-labelledby="aboutTitle">
+        <div class="wrap">
+          <div>
+            <h2 id="aboutTitle">Written between routes, weather windows, and work trips.</h2>
+            <p>Field Notes is a personal archive by Alex Chen, an outdoor trade professional who keeps a notebook for routes, gear decisions, export travel, and the small rituals that make time outside feel durable.</p>
+          </div>
+          <aside class="author" aria-label="Author profile">
+            <div class="initials" aria-hidden="true">AC</div>
+            <dl>
+              <div><dt>Base</dt><dd>Ningbo, China</dd></div>
+              <div><dt>Writing about</dt><dd>Outdoor living, practical gear, slow travel, and field-tested routines.</dd></div>
+              <div><dt>Current list</dt><dd>Rain shells, compact cook kits, coastal trails, and notebooks that survive a wet pack.</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <section class="newsletter wrap" id="newsletter" aria-labelledby="newsletterTitle">
+        <div class="newsletter-inner">
+          <div>
+            <h2 id="newsletterTitle">Get the next field note.</h2>
+            <p>A short monthly dispatch with new essays, packing notes, and route ideas. No noise, just useful writing from the edge of the map.</p>
+          </div>
+          <div>
+            <form id="subscribeForm">
+              <label class="sr-only" for="email">Email address</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+              <button class="btn" type="submit">Subscribe</button>
+            </form>
+            <div class="form-note" id="formNote" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
       <div class="wrap">
-        <div class="section-head">
-          <div class="label">What we handle</div>
-          <h2>One accountable team from supplier search to final shipment.</h2>
-          <p class="lead">Reduce sourcing risk with structured supplier vetting, clear documentation, production tracking, and export-ready logistics.</p>
-        </div>
-        <div class="service-grid">
-          <article class="service-card">
-            <div class="icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 21l-4.3-4.3" />
-                <circle cx="11" cy="11" r="7" />
-              </svg>
-            </div>
-            <h3>Supplier Sourcing</h3>
-            <p>Shortlist factories by category, capacity, certification, price level, and export history.</p>
-          </article>
-          <article class="service-card">
-            <div class="icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 11l3 3L22 4" />
-                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-              </svg>
-            </div>
-            <h3>Quality Control</h3>
-            <p>Pre-production samples, inline inspection, final random inspection, and photo reports.</p>
-          </article>
-          <article class="service-card">
-            <div class="icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 7h18" />
-                <path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2" />
-                <path d="M6 7v12h12V7" />
-                <path d="M9 12h6" />
-              </svg>
-            </div>
-            <h3>OEM & Packaging</h3>
-            <p>Logo application, retail packaging, user manuals, barcode labels, and carton marks.</p>
-          </article>
-          <article class="service-card">
-            <div class="icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 6h13v9H3z" />
-                <path d="M16 9h3l2 3v3h-5z" />
-                <circle cx="7" cy="18" r="2" />
-                <circle cx="18" cy="18" r="2" />
-              </svg>
-            </div>
-            <h3>Export Logistics</h3>
-            <p>Consolidation, booking, customs documents, FCL/LCL, air freight, and FBA delivery.</p>
-          </article>
+        <span>FIELD NOTES / Outdoor essays and gear reflections.</span>
+        <div class="footer-links">
+          <button class="scroll-link" type="button" data-scroll="top">Top</button>
+          <button class="scroll-link" type="button" data-scroll="journal">Journal</button>
+          <button class="scroll-link" type="button" data-scroll="newsletter">Contact</button>
         </div>
       </div>
-    </section>
-
-    <section class="section products" id="products">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="label">Product categories</div>
-          <h2>Focused sourcing across fast-moving consumer goods.</h2>
-          <p class="lead">We work with export-ready factories and help buyers compare samples, MOQ, lead time, certificates, and packaging options before placing an order.</p>
-        </div>
-        <div class="product-grid">
-          <article class="product-card">
-            <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=82" alt="Personal care bottles arranged for export packaging" />
-            <div class="product-body">
-              <h3>Beauty & Personal Care</h3>
-              <p>Skincare tools, grooming accessories, cosmetic packaging, bath items, and gift sets.</p>
-              <div class="tag-row">
-                <span class="tag">OEM</span>
-                <span class="tag">FDA files</span>
-                <span class="tag">Retail packs</span>
-              </div>
-            </div>
-          </article>
-          <article class="product-card">
-            <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=900&q=82" alt="Modern home decor products for export catalog" />
-            <div class="product-body">
-              <h3>Home & Lifestyle</h3>
-              <p>Kitchenware, storage, home textiles, decor, cleaning tools, and seasonal items.</p>
-              <div class="tag-row">
-                <span class="tag">BSCI</span>
-                <span class="tag">Low MOQ</span>
-                <span class="tag">Catalog supply</span>
-              </div>
-            </div>
-          </article>
-          <article class="product-card">
-            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=82" alt="Warehouse shelves and cartons for consolidated export shipments" />
-            <div class="product-body">
-              <h3>Tools & Light Industrial</h3>
-              <p>Hardware, shop supplies, safety items, electrical accessories, and assembled kits.</p>
-              <div class="tag-row">
-                <span class="tag">CE</span>
-                <span class="tag">Inspection</span>
-                <span class="tag">Carton test</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap sourcing">
-        <div class="sourcing-image">
-          <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1100&q=82" alt="Warehouse team managing export cartons and inventory" />
-          <div class="image-note">
-            <strong>24h</strong>
-            <span>Initial supplier response and category feasibility review for qualified RFQs.</span>
-          </div>
-        </div>
-        <div>
-          <div class="label">Risk control</div>
-          <h2>Transparent order management before money moves.</h2>
-          <p class="lead">Every quote is backed by supplier checks, production assumptions, packaging details, and shipping terms, so your team can compare options without guessing.</p>
-          <ul class="check-list">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg>
-              Factory license, export record, and certificate review.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg>
-              Sample approval workflow with photos, measurements, and notes.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg>
-              Shipment plan covering carton specs, loading volume, and Incoterms.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg>
-              Consolidated reporting from PO confirmation to final delivery.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section process" id="process">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="label">How it works</div>
-          <h2>A clear path from RFQ to repeat orders.</h2>
-          <p class="lead">Our workflow keeps buyers, suppliers, inspectors, and freight partners aligned around the same milestones.</p>
-        </div>
-        <div class="process-grid">
-          <article class="step">
-            <div class="step-number">1</div>
-            <h3>RFQ & Spec Check</h3>
-            <p>Share your product brief, target price, market requirements, packaging, and shipment route.</p>
-          </article>
-          <article class="step">
-            <div class="step-number">2</div>
-            <h3>Factory Match</h3>
-            <p>Receive verified supplier options with MOQ, lead time, certificates, and sample cost.</p>
-          </article>
-          <article class="step">
-            <div class="step-number">3</div>
-            <h3>Production Control</h3>
-            <p>Track samples, deposit, production schedule, inspection reports, and corrective actions.</p>
-          </article>
-          <article class="step">
-            <div class="step-number">4</div>
-            <h3>Ship & Reorder</h3>
-            <p>Finalize export documents, consolidate cargo, monitor delivery, and build your reorder plan.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="markets">
-      <div class="wrap markets-layout">
-        <div class="market-map">
-          <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1100&q=82" alt="World map and global market planning" />
-          <div class="market-copy">
-            <h2>Global routes, local requirements.</h2>
-            <p>We prepare sourcing and export plans around destination compliance, channel needs, labeling rules, and freight constraints.</p>
-          </div>
-        </div>
-        <div class="market-list">
-          <article class="market-card">
-            <strong>North America</strong>
-            <h3>Retail and ecommerce ready</h3>
-            <p>Amazon FBA routing, carton labels, barcode checks, CPSIA-related support, and appointment delivery.</p>
-          </article>
-          <article class="market-card">
-            <strong>Europe</strong>
-            <h3>Documentation first</h3>
-            <p>CE declarations, packaging waste information, EORI coordination, and multilingual inserts.</p>
-          </article>
-          <article class="market-card">
-            <strong>Middle East</strong>
-            <h3>Fast project sourcing</h3>
-            <p>Multi-category consolidation, Arabic labeling options, and air-sea freight alternatives.</p>
-          </article>
-          <article class="market-card">
-            <strong>Latin America</strong>
-            <h3>Price-sensitive supply</h3>
-            <p>MOQ planning, carton optimization, mixed container loading, and Spanish documentation support.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section contact" id="contact">
-      <div class="wrap contact-layout">
-        <div>
-          <div class="eyebrow">Start with a clear brief</div>
-          <h2>Send your product requirements and target market.</h2>
-          <p>Our sourcing team will review feasibility, identify the right supplier tier, and return a practical quote path with sample, MOQ, lead time, and shipping assumptions.</p>
-          <div class="hero-actions">
-            <a class="btn btn-secondary" href="mailto:sales@auroratrade.example">sales@auroratrade.example</a>
-            <a class="btn btn-primary" href="tel:+8613800000000">+86 138 0000 0000</a>
-          </div>
-        </div>
-        <form class="contact-panel" action="mailto:sales@auroratrade.example" method="post" enctype="text/plain">
-          <h3>Quick RFQ</h3>
-          <p style="margin-bottom: 18px;">Tell us what you want to source and where it needs to ship.</p>
-          <div class="form-grid">
-            <input class="field" name="name" type="text" placeholder="Name" aria-label="Name" />
-            <input class="field" name="email" type="email" placeholder="Email" aria-label="Email" />
-            <select class="field" name="category" aria-label="Product category">
-              <option value="">Product category</option>
-              <option>Beauty & Personal Care</option>
-              <option>Home & Lifestyle</option>
-              <option>Tools & Light Industrial</option>
-              <option>Other</option>
-            </select>
-            <textarea class="field" name="message" placeholder="Product specs, quantity, target price, destination..." aria-label="Message"></textarea>
-            <button class="btn btn-primary" type="submit">Submit RFQ</button>
-          </div>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <span>© 2026 外贸官网 Global sourcing and export services.</span>
-      <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#products">Products</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   <script>
-    const nav = document.getElementById("nav");
-    const toggle = document.querySelector(".menu-toggle");
-    const links = document.querySelectorAll(".nav-links a");
+    const menu = document.querySelector(".menu");
+    const nav = document.querySelector("#navLinks");
+    const scrollButtons = document.querySelectorAll("[data-scroll]");
+    const filters = document.querySelector(".filters");
+    const filterIndicator = document.querySelector(".filter-indicator");
+    const filterButtons = document.querySelectorAll("[data-filter]");
+    const posts = document.querySelectorAll(".post");
+    const form = document.querySelector("#subscribeForm");
+    const note = document.querySelector("#formNote");
 
-    toggle.addEventListener("click", () => {
-      const open = nav.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(open));
+    menu.addEventListener("click", () => {
+      const open = menu.getAttribute("aria-expanded") === "true";
+      menu.setAttribute("aria-expanded", String(!open));
+      nav.classList.toggle("open", !open);
     });
 
-    links.forEach((link) => {
-      link.addEventListener("click", () => {
+    nav.addEventListener("click", (event) => {
+      if (event.target.closest("[data-scroll]")) {
+        menu.setAttribute("aria-expanded", "false");
         nav.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    scrollButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = document.getElementById(button.dataset.scroll);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       });
+    });
+
+    const applyFilter = (button, index) => {
+      const filter = button.dataset.filter;
+      filterIndicator.style.transform = `translate3d(${index * 100}%, 0, 0)`;
+      filterButtons.forEach((item) => {
+        const active = item === button;
+        item.classList.toggle("active", active);
+        item.setAttribute("aria-selected", String(active));
+      });
+      posts.forEach((post) => {
+        post.style.display = filter === "all" || post.dataset.category === filter ? "" : "none";
+      });
+    };
+
+    filterButtons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        applyFilter(button, index);
+      });
+    });
+
+    const initialFilter = new URLSearchParams(window.location.search).get("filter");
+    const initialIndex = Array.from(filterButtons).findIndex((button) => button.dataset.filter === initialFilter);
+    if (initialIndex > -1) {
+      applyFilter(filterButtons[initialIndex], initialIndex);
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      note.textContent = "You are on the list.";
+      form.reset();
     });
   </script>
 </body>
