@@ -1,943 +1,834 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" translate="no" class="notranslate">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Field Notes | Personal Blog</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="google" content="notranslate" />
+  <meta name="robots" content="notranslate" />
+  <meta
+    name="description"
+    content="DawnRiseCamp is a China-based outdoor products manufacturer specializing in OEM/ODM camping and outdoor gear solutions."
+  />
+  <title>DawnRiseCamp | Outdoor Gear OEM/ODM Manufacturing</title>
   <style>
     :root {
-      --forest: #103d2e;
-      --deep: #09271f;
-      --ink: #151816;
-      --muted: #66786b;
-      --sage: #8ba58f;
-      --copper: #b8793b;
-      --paper: #f5f0e8;
-      --paper-2: #ebe3d7;
-      --white: #fffaf2;
-      --line: rgba(16, 61, 46, .18);
-      --shadow: 0 28px 80px rgba(9, 39, 31, .18);
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: "Segoe UI", Arial, Helvetica, sans-serif;
+      --green-950: #062719;
+      --green-900: #0a3522;
+      --green-800: #11462f;
+      --green-100: #e5efe8;
+      --orange-700: #d84a06;
+      --orange-600: #ec5c0d;
+      --orange-100: #fff0e6;
+      --ink: #17211c;
+      --muted: #65736b;
+      --line: #d9e1dc;
+      --paper: #ffffff;
+      --soft: #f6f8f5;
+      --shadow: 0 20px 60px rgba(7, 39, 25, 0.12);
+      --max: 1180px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    #home,
+    #capabilities,
+    #development,
+    #contact {
+      scroll-margin-top: 96px;
+    }
+
     body {
       margin: 0;
       color: var(--ink);
-      font-family: var(--sans);
-      letter-spacing: 0;
-      background:
-        radial-gradient(circle at 14% 8%, rgba(184, 121, 59, .13), transparent 28rem),
-        linear-gradient(180deg, var(--paper), #faf6ee 52%, var(--paper-2));
+      background: var(--paper);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .5;
-      background-image: url("data:image/svg+xml,%3Csvg width='900' height='620' viewBox='0 0 900 620' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23103d2e' stroke-opacity='.14' stroke-width='1.2'%3E%3Cpath d='M-70 120c130-84 252-86 366-7 92 64 190 67 294 10 102-57 210-52 324 16'/%3E%3Cpath d='M-80 190c148-76 286-72 414 12 96 63 198 62 306-3 96-57 202-58 318-2'/%3E%3Cpath d='M-80 270c162-60 314-47 456 38 102 61 210 54 324-21 96-64 205-74 327-31'/%3E%3Cpath d='M-70 356c160-40 313-18 459 66 105 60 216 45 333-45 92-71 202-90 330-58'/%3E%3Cpath d='M-60 448c144-22 286 5 426 82 108 60 222 34 342-79 91-86 206-113 344-81'/%3E%3C/g%3E%3C/svg%3E");
-      background-size: 58rem auto;
-      background-position: center top;
-      mix-blend-mode: multiply;
+    a,
+    button {
+      color: inherit;
+      font: inherit;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    button, input { font: inherit; letter-spacing: 0; }
-    p, h1, h2, h3 { margin: 0; }
+    a {
+      text-decoration: none;
+    }
 
-    .page { position: relative; overflow: hidden; }
-    .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    button {
+      padding: 0;
+      border: 0;
+      background: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(16, 61, 46, .95);
-      color: var(--white);
-      border-bottom: 1px solid rgba(255, 250, 242, .14);
-      backdrop-filter: blur(18px);
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid rgba(217, 225, 220, 0.78);
+      backdrop-filter: blur(14px);
     }
 
     .nav {
-      min-height: 76px;
+      width: calc(100% - 40px);
+      max-width: var(--max);
+      min-height: 82px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 28px;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      font-size: .96rem;
-      font-weight: 750;
-    }
-
-    .scroll-link {
-      appearance: none;
-      padding: 0;
-      border: 0;
-      background: transparent;
-      color: inherit;
-      font: inherit;
-      letter-spacing: 0;
+      gap: 14px;
+      min-width: 0;
       cursor: pointer;
     }
 
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      border: 1px solid rgba(255, 250, 242, .4);
-      border-radius: 6px;
-      display: grid;
-      place-items: center;
-      color: #d9a15d;
+    .brand img {
+      width: auto;
+      height: 64px;
+      object-fit: contain;
     }
 
-    .brand-mark svg { width: 24px; height: 24px; }
-
-    .nav-links { display: flex; align-items: center; gap: 8px; }
-    .nav-links .scroll-link, .nav-action {
-      min-height: 40px;
-      display: inline-flex;
-      align-items: center;
-      border-radius: 6px;
-      font-size: .9rem;
-    }
-
-    .nav-links .scroll-link {
-      padding: 0 12px;
-      color: rgba(255, 250, 242, .78);
-    }
-
-    .nav-links .scroll-link:hover, .nav-links .scroll-link:focus-visible {
-      color: var(--white);
-      background: rgba(255, 250, 242, .1);
-      outline: none;
-    }
-
-    .nav-action {
-      gap: 10px;
-      padding: 0 16px;
-      border: 1px solid rgba(216, 161, 93, .74);
-      background: rgba(184, 121, 59, .18);
-      color: var(--white);
-      font-weight: 650;
-    }
-
-    .menu {
-      display: none;
-      width: 44px;
-      height: 44px;
-      border: 1px solid rgba(255, 250, 242, .32);
-      border-radius: 6px;
-      background: transparent;
-      color: var(--white);
-      place-items: center;
-      cursor: pointer;
-    }
-
-    .menu span, .menu span::before, .menu span::after {
-      content: "";
-      display: block;
-      width: 18px;
-      height: 2px;
-      background: currentColor;
-      position: relative;
-    }
-
-    .menu span::before { position: absolute; top: -6px; }
-    .menu span::after { position: absolute; top: 6px; }
-
-    .hero {
-      min-height: calc(100vh - 76px);
-      padding: 72px 0 44px;
-      display: grid;
-      grid-template-columns: minmax(0, .9fr) minmax(420px, 1.1fr);
-      align-items: center;
-      gap: 54px;
-    }
-
-    h1 {
-      font-family: var(--serif);
-      font-size: 5.4rem;
-      line-height: .95;
-      font-weight: 500;
-      color: var(--deep);
-    }
-
-    .hero-text p {
-      margin-top: 24px;
-      max-width: 520px;
-      color: #526357;
-      font-size: 1.18rem;
-      line-height: 1.8;
-    }
-
-    .actions {
-      margin-top: 34px;
+    .nav-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      gap: 34px;
+      color: var(--green-950);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .nav-links button {
+      position: relative;
+      padding: 8px 0;
+      color: inherit;
+      font-weight: inherit;
+      cursor: pointer;
+    }
+
+    .nav-links button::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      content: "";
+      background: var(--orange-600);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 180ms ease;
+    }
+
+    .nav-links button:hover::after,
+    .nav-links button:focus-visible::after {
+      transform: scaleX(1);
     }
 
     .btn {
-      min-height: 48px;
-      padding: 0 20px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      border: 1px solid var(--forest);
-      border-radius: 6px;
-      background: var(--forest);
-      color: var(--white);
-      font-weight: 750;
+      min-height: 46px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-size: 0.94rem;
+      font-weight: 800;
+      letter-spacing: 0;
       cursor: pointer;
-      transition: transform .18s ease, box-shadow .18s ease;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
     }
 
-    .arrow {
+    .btn svg {
       width: 18px;
       height: 18px;
       flex: 0 0 auto;
     }
 
-    .btn:hover, .btn:focus-visible {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(16, 61, 46, .22);
-      outline: none;
+    .btn-primary {
+      color: white;
+      background: var(--orange-600);
+      box-shadow: 0 12px 30px rgba(236, 92, 13, 0.24);
     }
 
-    .btn.secondary {
-      background: rgba(255, 250, 242, .5);
-      color: var(--forest);
-      border-color: rgba(16, 61, 46, .26);
-      box-shadow: none;
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--orange-700);
+      transform: translateY(-1px);
+      box-shadow: 0 16px 36px rgba(236, 92, 13, 0.3);
     }
 
-    .stats {
-      margin-top: 44px;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+    .btn-secondary {
+      color: var(--green-950);
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(10, 53, 34, 0.22);
     }
 
-    .stats strong {
-      display: block;
-      font-family: var(--serif);
-      font-size: 1.36rem;
-      font-weight: 500;
-      color: var(--forest);
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      border-color: rgba(10, 53, 34, 0.42);
+      transform: translateY(-1px);
     }
 
-    .stats span {
-      display: block;
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: .86rem;
-      line-height: 1.45;
-    }
-
-    .hero-card {
+    .hero {
       position: relative;
-      min-height: 580px;
+      min-height: clamp(560px, 74svh, 720px);
       overflow: hidden;
-      border: 1px solid rgba(16, 61, 46, .24);
-      border-radius: 8px;
-      background: var(--deep);
-      box-shadow: var(--shadow);
-      isolation: isolate;
-    }
-
-    .hero-card img {
-      width: 100%;
-      height: 100%;
-      min-height: 580px;
-      object-fit: cover;
-      filter: saturate(.94) contrast(1.04);
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
       background:
-        linear-gradient(90deg, rgba(9, 39, 31, .5), transparent 45%),
-        linear-gradient(180deg, transparent 50%, rgba(9, 39, 31, .68));
-      z-index: 1;
+        linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.9) 34%, rgba(255, 255, 255, 0.34) 58%, rgba(255, 255, 255, 0) 78%),
+        url("assets/dawnrisecamp-hero.png") center right / cover no-repeat;
+      border-bottom: 1px solid var(--line);
     }
 
-    .hero-card::after {
-      content: "";
+    .hero::after {
       position: absolute;
-      inset: 18px;
-      border: 1px solid rgba(255, 250, 242, .34);
-      border-radius: 6px;
-      z-index: 2;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 110px;
       pointer-events: none;
+      content: "";
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0), #ffffff);
     }
 
-    .compass {
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: calc(100% - 40px);
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(72px, 9vw, 116px) 0 86px;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 8px;
+      color: var(--green-950);
+      font-size: clamp(3.1rem, 5.7vw, 5.7rem);
+      font-weight: 900;
+      line-height: 0.94;
+      letter-spacing: 0;
+    }
+
+    .hero-title-accent {
+      color: var(--orange-600);
+    }
+
+    .hero-lead {
+      margin-bottom: 24px;
+      color: var(--green-900);
+      font-size: clamp(1.9rem, 4vw, 4.25rem);
+      font-weight: 900;
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .hero-text {
+      max-width: 600px;
+      margin-bottom: 34px;
+      color: #22322a;
+      font-size: clamp(1.04rem, 1.6vw, 1.28rem);
+      line-height: 1.62;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .scroll-cue {
       position: absolute;
-      top: 34px;
-      right: 34px;
-      z-index: 3;
-      width: 72px;
-      height: 72px;
-      border: 1px solid rgba(255, 250, 242, .36);
-      border-radius: 50%;
+      right: 50%;
+      bottom: -1px;
+      z-index: 2;
+      width: 70px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-bottom: 0;
+      border-radius: 8px 8px 0 0;
+      color: var(--orange-600);
+      background: white;
+      transform: translateX(50%);
       display: grid;
       place-items: center;
-      color: #d9a15d;
-      background: rgba(16, 61, 46, .28);
-      backdrop-filter: blur(8px);
     }
 
-    .caption {
-      position: absolute;
-      left: 34px;
-      right: 34px;
-      bottom: 30px;
-      z-index: 3;
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 24px;
-      color: var(--white);
+    .scroll-cue svg {
+      width: 22px;
+      height: 22px;
     }
 
-    .caption h2 {
-      font-family: var(--serif);
-      font-size: 2.2rem;
-      line-height: 1.04;
-      font-weight: 500;
+    .section {
+      width: calc(100% - 40px);
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(58px, 7vw, 92px) 0;
     }
 
-    .caption p {
-      max-width: 190px;
-      text-align: right;
-      color: rgba(255, 250, 242, .78);
-      font-size: .88rem;
-      line-height: 1.5;
+    .section-header {
+      max-width: 780px;
+      margin: 0 auto 42px;
+      text-align: center;
     }
 
-    .featured {
+    .section-header h2 {
+      margin-bottom: 12px;
+      color: var(--green-950);
+      font-size: clamp(2rem, 3.8vw, 3.35rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .section-header p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .section-rule {
+      width: 46px;
+      height: 3px;
+      margin: 18px auto 0;
+      background: var(--orange-600);
+    }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      background: rgba(255, 250, 242, .44);
     }
 
-    .featured .wrap {
-      padding: 30px 0;
-      display: grid;
-      grid-template-columns: 180px minmax(0, 1fr) auto;
-      align-items: center;
-      gap: 32px;
+    .capability {
+      min-height: 210px;
+      padding: 34px 30px;
+      border-right: 1px solid var(--line);
+      background: white;
     }
 
-    .label {
-      color: var(--copper);
-      font-size: .84rem;
-      font-weight: 750;
+    .capability:last-child {
+      border-right: 0;
     }
 
-    .featured h2, .section-title h2, .about h2, .newsletter h2 {
-      font-family: var(--serif);
-      font-weight: 500;
-      color: var(--deep);
+    .capability-icon,
+    .contact-icon {
+      display: inline-grid;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 20px;
+      place-items: center;
+      color: var(--green-900);
+      background: var(--green-100);
+      border-radius: 8px;
     }
 
-    .featured h2 { font-size: 2.2rem; line-height: 1.1; }
-    .featured p, .section-title p, .newsletter p {
-      margin-top: 8px;
+    .capability-icon svg,
+    .contact-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke-width: 1.8;
+    }
+
+    .capability h3 {
+      margin-bottom: 8px;
+      color: var(--green-950);
+      font-size: 1.2rem;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .capability p {
+      margin-bottom: 0;
       color: var(--muted);
+      font-size: 0.96rem;
       line-height: 1.7;
     }
 
-    .text-link {
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--forest);
-      font-weight: 750;
-      white-space: nowrap;
-    }
-
-    .journal { padding: 88px 0 96px; }
-
-    .section-title {
-      margin-bottom: 34px;
-      display: grid;
-      grid-template-columns: minmax(0, .82fr) minmax(260px, .55fr);
-      align-items: end;
-      gap: 40px;
-    }
-
-    .section-title h2 {
-      font-size: 3.4rem;
-      line-height: 1;
-    }
-
-    .filters {
-      position: relative;
-      width: min(100%, 344px);
-      max-width: 100%;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      margin-bottom: 28px;
-      padding: 4px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255, 250, 242, .62);
-      overflow: hidden;
-    }
-
-    .filter-indicator {
-      position: absolute;
-      top: 4px;
-      bottom: 4px;
-      left: 4px;
-      width: calc((100% - 8px) / 4);
-      border-radius: 6px;
-      background: var(--forest);
-      box-shadow: 0 10px 20px rgba(16, 61, 46, .18);
-      transform: translate3d(0, 0, 0);
-      transition: transform .3s cubic-bezier(.22, 1, .36, 1);
-      will-change: transform;
-      pointer-events: none;
-    }
-
-    .filters button {
-      position: relative;
-      z-index: 1;
-      min-height: 38px;
-      border: 0;
-      border-radius: 6px;
-      padding: 0 12px;
-      color: var(--muted);
-      background: transparent;
-      font-size: .88rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: color .2s ease;
-    }
-
-    .filters button.active {
-      color: var(--white);
-    }
-
-    .filters button:focus-visible {
-      outline: 2px solid rgba(184, 121, 59, .7);
-      outline-offset: -3px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .post {
-      min-height: 438px;
-      display: grid;
-      grid-template-rows: 220px 1fr;
-      overflow: hidden;
-      border: 1px solid rgba(16, 61, 46, .16);
-      border-radius: 8px;
-      background: rgba(255, 250, 242, .7);
-      box-shadow: 0 16px 38px rgba(16, 61, 46, .08);
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    }
-
-    .post:hover {
-      transform: translateY(-4px);
-      border-color: rgba(184, 121, 59, .45);
-      box-shadow: 0 26px 48px rgba(16, 61, 46, .16);
-    }
-
-    .thumb { position: relative; overflow: hidden; background: var(--deep); }
-    .thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: .94;
-      filter: saturate(.86) contrast(1.06);
-    }
-
-    .post:nth-child(2) .thumb img, .post:nth-child(5) .thumb img { object-position: 68% center; }
-    .post:nth-child(3) .thumb img, .post:nth-child(6) .thumb img { object-position: 34% center; }
-
-    .thumb::after {
-      content: "";
-      position: absolute;
-      inset: 0;
+    .notice-band {
       background:
-        linear-gradient(180deg, transparent 42%, rgba(9, 39, 31, .52)),
-        url("data:image/svg+xml,%3Csvg width='420' height='220' viewBox='0 0 420 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23fffaf2' stroke-opacity='.28' stroke-width='1'%3E%3Cpath d='M-20 78c65-36 125-36 180 0 47 31 93 34 138 9 45-25 91-24 138 4'/%3E%3Cpath d='M-24 112c76-32 146-29 210 10 47 29 96 29 147 1 48-27 96-25 145 6'/%3E%3Cpath d='M-30 148c89-26 169-16 240 28 52 32 104 28 157-11 49-36 102-39 161-9'/%3E%3C/g%3E%3C/svg%3E");
-      background-size: cover;
-    }
-
-    .post-body {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .meta {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      color: var(--copper);
-      font-size: .78rem;
-      font-weight: 750;
-    }
-
-    .post h3 {
-      font-family: var(--serif);
-      font-size: 1.72rem;
-      line-height: 1.12;
-      font-weight: 500;
-      color: var(--deep);
-    }
-
-    .post p {
-      color: #607064;
-      line-height: 1.65;
-      font-size: .96rem;
-    }
-
-    .post-link {
-      margin-top: auto;
-      width: max-content;
-      padding: 0;
-      border: 0;
-      background: transparent;
-      color: var(--forest);
-      font-size: .9rem;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .post-link:hover,
-    .post-link:focus-visible {
-      color: var(--copper);
-      outline: none;
-    }
-
-    .about {
-      position: relative;
-      overflow: hidden;
-      background: var(--deep);
-      color: var(--white);
-    }
-
-    .about::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: .85;
-      background:
-        radial-gradient(circle at 78% 22%, rgba(216, 161, 93, .22), transparent 25rem),
-        url("data:image/svg+xml,%3Csvg width='900' height='540' viewBox='0 0 900 540' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23fffaf2' stroke-opacity='.1' stroke-width='1.1'%3E%3Cpath d='M-40 120c110-70 216-73 318-9 92 58 183 57 273-4 99-67 203-70 312-8'/%3E%3Cpath d='M-44 180c123-64 241-62 354 7 89 54 183 50 281-11 96-60 198-60 306 0'/%3E%3Cpath d='M-50 248c139-54 270-43 394 35 88 55 184 47 288-24 93-63 195-69 307-17'/%3E%3Cpath d='M-50 324c147-39 286-21 418 53 93 52 193 39 300-38 91-66 195-78 311-34'/%3E%3C/g%3E%3C/svg%3E");
-      background-size: 62rem auto;
-      background-position: right center;
-    }
-
-    .about .wrap {
-      position: relative;
-      z-index: 1;
-      padding: 86px 0;
-      display: grid;
-      grid-template-columns: minmax(0, .78fr) minmax(300px, .52fr);
-      align-items: center;
-      gap: 76px;
-    }
-
-    .about h2 {
-      color: var(--white);
-      font-size: 3.35rem;
-      line-height: 1.03;
-    }
-
-    .about p {
-      margin-top: 22px;
-      color: rgba(255, 250, 242, .74);
-      font-size: 1.05rem;
-      line-height: 1.85;
-    }
-
-    .author {
-      border-left: 1px solid rgba(255, 250, 242, .24);
-      padding-left: 34px;
-    }
-
-    .initials {
-      width: 92px;
-      height: 92px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(216, 161, 93, .56);
-      border-radius: 8px;
-      background: rgba(255, 250, 242, .06);
-      color: #d9a15d;
-      font-family: var(--serif);
-      font-size: 2.4rem;
-    }
-
-    .author dl { margin: 26px 0 0; display: grid; gap: 16px; }
-    .author dt { color: rgba(216, 161, 93, .94); font-size: .78rem; font-weight: 800; }
-    .author dd { margin: 5px 0 0; color: rgba(255, 250, 242, .82); line-height: 1.5; }
-
-    .newsletter { padding: 88px 0; }
-    .newsletter-inner {
-      display: grid;
-      grid-template-columns: minmax(0, .8fr) minmax(320px, .7fr);
-      gap: 54px;
-      align-items: center;
+        radial-gradient(circle at 20% 10%, rgba(236, 92, 13, 0.08), transparent 26%),
+        linear-gradient(180deg, #fbfcfa 0%, #ffffff 100%);
       border-top: 1px solid var(--line);
-      padding-top: 50px;
     }
 
-    .newsletter h2 { font-size: 3.1rem; line-height: 1.04; }
-
-    form {
+    .notice-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 10px;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: clamp(32px, 6vw, 68px);
+      align-items: start;
     }
 
-    input {
-      min-height: 52px;
-      width: 100%;
-      padding: 0 16px;
-      border: 1px solid rgba(16, 61, 46, .22);
-      border-radius: 6px;
-      background: rgba(255, 250, 242, .72);
-      color: var(--deep);
-      outline: none;
+    .divider {
+      width: 1px;
+      min-height: 100%;
+      background: linear-gradient(180deg, transparent, rgba(236, 92, 13, 0.55), transparent);
     }
 
-    input:focus {
-      border-color: var(--copper);
-      box-shadow: 0 0 0 4px rgba(184, 121, 59, .12);
+    .notice-copy h2,
+    .contact-panel h2 {
+      margin-bottom: 14px;
+      color: var(--green-950);
+      font-size: clamp(2rem, 3.8vw, 3.15rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: 0;
     }
 
-    .form-note {
-      min-height: 22px;
-      margin-top: 12px;
-      color: var(--forest);
+    .notice-copy p {
+      max-width: 570px;
+      color: #34443a;
+      font-size: 1.08rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .contact-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 14px;
+      align-items: center;
+      min-height: 58px;
+      color: var(--green-950);
+      font-size: 1rem;
       font-weight: 700;
     }
 
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
+    .contact-item span,
+    .contact-item a {
+      min-width: 0;
+      overflow-wrap: anywhere;
     }
 
     .footer {
-      padding: 26px 0;
-      background: var(--ink);
-      color: rgba(255, 250, 242, .72);
+      padding: 24px 0 34px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      background: white;
+      font-size: 0.92rem;
     }
 
-    .footer .wrap {
+    .footer-inner {
+      width: calc(100% - 40px);
+      max-width: var(--max);
+      margin: 0 auto;
       display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      font-size: .88rem;
     }
 
-    .footer-links { display: flex; gap: 18px; }
-    .footer-links .scroll-link { padding: 0; color: inherit; }
-    .footer-links .scroll-link:hover, .footer-links .scroll-link:focus-visible { color: var(--white); outline: none; }
+    .footer strong {
+      color: var(--green-950);
+    }
 
-    @media (max-width: 980px) {
-      .nav { min-height: 68px; }
-      .menu { display: grid; }
-      .nav-links {
-        position: absolute;
-        top: 68px;
-        left: 14px;
-        right: 14px;
-        display: none;
-        padding: 12px;
-        border: 1px solid rgba(255, 250, 242, .12);
-        border-radius: 8px;
-        background: rgba(16, 61, 46, .98);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, .22);
+    @media (max-width: 920px) {
+      .nav {
+        min-height: 74px;
       }
-      .nav-links.open { display: grid; }
-      .nav-links .scroll-link { min-height: 46px; }
-      .nav-action { display: none; }
-      .hero, .section-title, .about .wrap, .newsletter-inner { grid-template-columns: 1fr; }
-      .hero { padding: 54px 0 36px; gap: 34px; }
-      h1 { font-size: 4.4rem; }
-      .hero-card, .hero-card img { min-height: 470px; }
-      .featured .wrap { grid-template-columns: 1fr; align-items: start; gap: 14px; }
-      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .author { border-left: 0; border-top: 1px solid rgba(255, 250, 242, .24); padding-left: 0; padding-top: 30px; }
+
+      .brand img {
+        height: 54px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.86) 48%, rgba(255, 255, 255, 0.22) 100%),
+          url("assets/dawnrisecamp-hero.png") center right 30% / cover no-repeat;
+      }
+
+      .hero-inner {
+        min-height: 68svh;
+        padding: 64px 0 92px;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-copy {
+        max-width: 590px;
+      }
+
+      .capability-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .capability:nth-child(2) {
+        border-right: 0;
+      }
+
+      .capability:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .notice-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .divider {
+        width: 100%;
+        min-height: 1px;
+      }
     }
 
     @media (max-width: 640px) {
-      .wrap {
-        width: min(calc(100% - 28px), 362px);
-        margin-left: 14px;
-        margin-right: auto;
+      .nav {
+        width: calc(100% - 28px);
+        gap: 14px;
       }
-      h1 { font-size: 3.2rem; }
-      .hero-text p { font-size: 1.02rem; }
-      .stats { grid-template-columns: 1fr; gap: 16px; }
-      .hero-card, .hero-card img { min-height: 390px; }
-      .compass { width: 58px; height: 58px; top: 26px; right: 26px; }
-      .caption { left: 24px; right: 24px; bottom: 24px; display: grid; }
-      .caption p { text-align: left; }
-      .featured h2, .section-title h2, .about h2, .newsletter h2 { font-size: 2.45rem; }
-      .filters { width: 100%; }
-      .grid { grid-template-columns: 1fr; }
-      .post { min-height: 400px; }
-      form { grid-template-columns: 1fr; }
-      .footer .wrap { flex-direction: column; }
+
+      .brand img {
+        height: 44px;
+      }
+
+      .nav .btn {
+        width: auto;
+        flex: 0 0 auto;
+        max-width: 146px;
+        min-height: 40px;
+        padding: 0 12px;
+        font-size: 0.84rem;
+      }
+
+      .hero {
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 58%, rgba(255, 255, 255, 0.2) 100%),
+          url("assets/dawnrisecamp-hero.png") 61% center / cover no-repeat;
+      }
+
+      .hero-inner,
+      .section,
+      .footer-inner {
+        width: calc(100% - 28px);
+      }
+
+      .hero-inner {
+        min-height: 72svh;
+        padding: 46px 0 86px;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 9.4vw, 2.85rem);
+        overflow-wrap: anywhere;
+      }
+
+      .hero-title-accent {
+        display: block;
+      }
+
+      .hero-lead {
+        font-size: clamp(1.35rem, 6.1vw, 1.85rem);
+        overflow-wrap: anywhere;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .scroll-cue {
+        width: 58px;
+        height: 38px;
+      }
+
+      .capability-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .capability {
+        min-height: auto;
+        padding: 26px 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .capability:last-child {
+        border-bottom: 0;
+      }
+
+      .capability-icon,
+      .contact-icon {
+        width: 44px;
+        height: 44px;
+      }
+
+      .contact-item {
+        grid-template-columns: 44px 1fr;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         scroll-behavior: auto !important;
-        transition-duration: .001ms !important;
-        animation-duration: .001ms !important;
-      }
-
-      .filter-indicator {
-        transition-duration: .3s !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
       }
     }
   </style>
 </head>
-<body>
-  <div class="page">
-    <header class="site-header">
-      <nav class="nav wrap" aria-label="Primary navigation">
-        <button class="brand scroll-link" type="button" data-scroll="top" aria-label="Field Notes home">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none"><path d="M7 32 18 18l8 10 6-7 9 11" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 36h30" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-          </span>
-          <span>FIELD NOTES</span>
-        </button>
-        <button class="menu" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
-        <div class="nav-links" id="navLinks">
-          <button class="scroll-link" type="button" data-scroll="journal">Journal</button>
-          <button class="scroll-link" type="button" data-scroll="gear">Gear</button>
-          <button class="scroll-link" type="button" data-scroll="about">About</button>
-          <button class="scroll-link" type="button" data-scroll="newsletter">Newsletter</button>
-        </div>
-        <button class="nav-action scroll-link" type="button" data-scroll="newsletter">Subscribe <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      </nav>
-    </header>
+<body translate="no" class="notranslate">
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <button class="brand" type="button" data-scroll-target="home" aria-label="DawnRiseCamp home">
+        <img src="assets/dawnrisecamp-logo-trimmed.png" alt="DawnRiseCamp logo" />
+      </button>
+      <div class="nav-links" aria-label="Page sections">
+        <button type="button" data-scroll-target="home">Home</button>
+        <button type="button" data-scroll-target="capabilities">Capabilities</button>
+        <button type="button" data-scroll-target="development">Development</button>
+        <button type="button" data-scroll-target="contact">Contact</button>
+      </div>
+      <button class="btn btn-primary" type="button" data-scroll-target="contact">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16v16H4z" />
+          <path d="m4 7 8 6 8-6" />
+        </svg>
+        Contact Us
+      </button>
+    </nav>
+  </header>
 
-    <main id="top">
-      <section class="hero wrap" aria-labelledby="heroTitle">
-        <div class="hero-text">
-          <h1 id="heroTitle">Field Notes</h1>
-          <p>Outdoor essays, gear reflections, and slow travel journals for people who like their routes honest, their packs lighter, and their mornings quiet.</p>
-          <div class="actions">
-            <button class="btn scroll-link" type="button" data-scroll="featured">Read the latest <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <button class="btn secondary scroll-link" type="button" data-scroll="about">About the author</button>
+  <main id="home">
+    <section class="hero" aria-label="DawnRiseCamp outdoor gear manufacturing">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h1>DawnRise<wbr><span class="hero-title-accent">Camp</span></h1>
+          <p class="hero-lead">Outdoor Gear OEM/ODM Manufacturing</p>
+          <p class="hero-text">
+            DawnRiseCamp is a China-based outdoor products manufacturer with 10 years of experience in camping and outdoor gear.
+          </p>
+          <p class="hero-text">
+            We specialize in OEM/ODM solutions for global brands, retailers, and distributors, providing reliable product development, sampling, production, and export support.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" type="button" data-scroll-target="contact">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4z" />
+                <path d="m4 7 8 6 8-6" />
+              </svg>
+              Request Catalogs
+            </button>
+            <button class="btn btn-secondary" type="button" data-scroll-target="contact">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.2A8.5 8.5 0 1 1 20 11.5Z" />
+                <path d="M8.8 8.8c.4 3 2.4 5 5.4 5.4l1.4-1.4" />
+              </svg>
+              WhatsApp
+            </button>
           </div>
-          <div class="stats" aria-label="Blog highlights">
-            <div><strong>48</strong><span>published trail and gear notes</span></div>
-            <div><strong>12</strong><span>routes mapped with packing lists</span></div>
-            <div><strong>6 yr</strong><span>writing from camps, cabins, and airports</span></div>
-          </div>
-        </div>
-        <div class="hero-card" aria-label="Mountain trail image">
-          <img src="assets/field-notes-hero.png" alt="A quiet mountain trail through evergreen ridges in morning light">
-          <div class="compass" aria-hidden="true">
-            <svg viewBox="0 0 48 48" width="36" height="36" fill="none"><circle cx="24" cy="24" r="17" stroke="currentColor" stroke-width="2"/><path d="m29 19-5 15-5-15 15-5-5 5Z" fill="currentColor"/></svg>
-          </div>
-          <div class="caption">
-            <h2>The Mountain List</h2>
-            <p>Routes, kit notes, and small lessons from long days outside.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="featured" id="featured" aria-labelledby="featuredTitle">
-        <div class="wrap">
-          <div class="label">Featured</div>
-          <div>
-            <h2 id="featuredTitle">Pack Light, Think Deep</h2>
-            <p>A practical note on choosing fewer things, moving with more attention, and leaving room for weather.</p>
-          </div>
-          <button class="text-link scroll-link" type="button" data-scroll="journal">Open journal <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        </div>
-      </section>
-
-      <section class="journal wrap" id="journal" aria-labelledby="journalTitle">
-        <div class="section-title">
-          <h2 id="journalTitle">Latest Journal</h2>
-          <p>Notes for routes, camp routines, weather windows, and the equipment decisions that make a trip feel simple.</p>
-        </div>
-        <div class="filters" role="tablist" aria-label="Filter journal posts">
-          <span class="filter-indicator" aria-hidden="true"></span>
-          <button class="active" type="button" data-filter="all" aria-selected="true">All</button>
-          <button type="button" data-filter="trail" aria-selected="false">Trail</button>
-          <button type="button" data-filter="gear" aria-selected="false" id="gear">Gear</button>
-          <button type="button" data-filter="notes" aria-selected="false">Notes</button>
-        </div>
-        <div class="grid">
-          <article class="post" data-category="trail">
-            <div class="thumb"><img src="assets/field-notes-hero.png" alt="Mountain trail with layered forest ridges"></div>
-            <div class="post-body"><div class="meta"><span>Trail</span><span>May 08</span></div><h3>Three ridgelines before breakfast</h3><p>A compact route plan for mornings when the weather gives you exactly four clean hours.</p><button class="post-link" type="button">Read note</button></div>
-          </article>
-          <article class="post" data-category="gear">
-            <div class="thumb"><img src="assets/field-notes-hero.png" alt="Evergreen mountain landscape in morning light"></div>
-            <div class="post-body"><div class="meta"><span>Gear</span><span>Apr 26</span></div><h3>The quiet value of a better shell</h3><p>What changes when rainwear breathes, packs small, and never asks for attention.</p><button class="post-link" type="button">Read note</button></div>
-          </article>
-          <article class="post" data-category="notes">
-            <div class="thumb"><img src="assets/field-notes-hero.png" alt="Mountain path and misted valley"></div>
-            <div class="post-body"><div class="meta"><span>Notes</span><span>Apr 14</span></div><h3>Why slow travel still needs a plan</h3><p>A personal system for leaving space in the day without letting the day drift away.</p><button class="post-link" type="button">Read note</button></div>
-          </article>
-          <article class="post" data-category="gear">
-            <div class="thumb"><img src="assets/field-notes-hero.png" alt="Trail through pine trees with warm sunlight"></div>
-            <div class="post-body"><div class="meta"><span>Gear</span><span>Mar 31</span></div><h3>A small kit for uncertain weather</h3><p>Layering choices, repair tape, dry bags, and the few extras that earn their weight.</p><button class="post-link" type="button">Read note</button></div>
-          </article>
-          <article class="post" data-category="trail">
-            <div class="thumb"><img src="assets/field-notes-hero.png" alt="Distant mountain ridges under a bright sky"></div>
-            <div class="post-body"><div class="meta"><span>Trail</span><span>Mar 18</span></div><h3>Reading a map like a conversation</h3><p>Contour lines, wind exposure, water stops, and the small signs that make routes legible.</p><button class="post-link" type="button">Read note</button></div>
-          </article>
-          <article class="post" data-category="notes">
-            <div class="thumb"><img src="assets/field-notes-hero.png" alt="Quiet green valley with a trail leading forward"></div>
-            <div class="post-body"><div class="meta"><span>Notes</span><span>Mar 02</span></div><h3>Camp coffee and better questions</h3><p>A short essay on stillness, useful discomfort, and writing before the signal returns.</p><button class="post-link" type="button">Read note</button></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="about" id="about" aria-labelledby="aboutTitle">
-        <div class="wrap">
-          <div>
-            <h2 id="aboutTitle">Written between routes, weather windows, and work trips.</h2>
-            <p>Field Notes is a personal archive by Alex Chen, an outdoor trade professional who keeps a notebook for routes, gear decisions, export travel, and the small rituals that make time outside feel durable.</p>
-          </div>
-          <aside class="author" aria-label="Author profile">
-            <div class="initials" aria-hidden="true">AC</div>
-            <dl>
-              <div><dt>Base</dt><dd>Ningbo, China</dd></div>
-              <div><dt>Writing about</dt><dd>Outdoor living, practical gear, slow travel, and field-tested routines.</dd></div>
-              <div><dt>Current list</dt><dd>Rain shells, compact cook kits, coastal trails, and notebooks that survive a wet pack.</dd></div>
-            </dl>
-          </aside>
-        </div>
-      </section>
-
-      <section class="newsletter wrap" id="newsletter" aria-labelledby="newsletterTitle">
-        <div class="newsletter-inner">
-          <div>
-            <h2 id="newsletterTitle">Get the next field note.</h2>
-            <p>A short monthly dispatch with new essays, packing notes, and route ideas. No noise, just useful writing from the edge of the map.</p>
-          </div>
-          <div>
-            <form id="subscribeForm">
-              <label class="sr-only" for="email">Email address</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
-              <button class="btn" type="submit">Subscribe</button>
-            </form>
-            <div class="form-note" id="formNote" aria-live="polite"></div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="wrap">
-        <span>FIELD NOTES / Outdoor essays and gear reflections.</span>
-        <div class="footer-links">
-          <button class="scroll-link" type="button" data-scroll="top">Top</button>
-          <button class="scroll-link" type="button" data-scroll="journal">Journal</button>
-          <button class="scroll-link" type="button" data-scroll="newsletter">Contact</button>
         </div>
       </div>
-    </footer>
-  </div>
+      <button class="scroll-cue" type="button" data-scroll-target="capabilities" aria-label="Scroll to capabilities">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </button>
+    </section>
+
+    <section class="section" id="capabilities">
+      <div class="section-header">
+        <h2>Reliable Manufacturing. End-to-End Support.</h2>
+        <p>OEM/ODM solutions for global brands, retailers, and distributors.</p>
+        <div class="section-rule" aria-hidden="true"></div>
+      </div>
+
+      <div class="capability-grid" aria-label="Manufacturing capabilities">
+        <article class="capability">
+          <span class="capability-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 20h16" />
+              <path d="M6 16 17.5 4.5l2 2L8 18H6z" />
+              <path d="m15 7 2 2" />
+            </svg>
+          </span>
+          <h3>Product development</h3>
+          <p>From concept to design, we help turn outdoor gear ideas into practical manufacturing plans.</p>
+        </article>
+
+        <article class="capability">
+          <span class="capability-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 21h8" />
+              <path d="M9 4h6l1 4H8z" />
+              <path d="M7 8h10l2 13H5z" />
+              <path d="M9 12h6" />
+            </svg>
+          </span>
+          <h3>Sampling</h3>
+          <p>Quick, precise samples help confirm fabric, function, sizing, and production details.</p>
+        </article>
+
+        <article class="capability">
+          <span class="capability-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 19h14" />
+              <path d="M6 16h12V8H6z" />
+              <path d="M9 8V5h6v3" />
+              <path d="M8 12h3" />
+              <path d="M16 12h.01" />
+            </svg>
+          </span>
+          <h3>Production</h3>
+          <p>Experienced local factory support for consistent output, quality control, and repeat orders.</p>
+        </article>
+
+        <article class="capability">
+          <span class="capability-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M3 12h18" />
+              <path d="M12 3c2.3 2.5 3.4 5.5 3.4 9S14.3 18.5 12 21" />
+              <path d="M12 3c-2.3 2.5-3.4 5.5-3.4 9S9.7 18.5 12 21" />
+              <path d="m15 15 4 4" />
+            </svg>
+          </span>
+          <h3>Export support</h3>
+          <p>Export documentation, logistics coordination, and global shipping support for overseas partners.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="notice-band" id="development">
+      <div class="section notice-layout">
+        <div class="notice-copy">
+          <h2>Website under development</h2>
+          <div class="section-rule" aria-hidden="true" style="margin-left: 0;"></div>
+          <p>
+            Our full website is currently under development. For product catalogs, quotations, or custom project inquiries, please contact us directly.
+          </p>
+        </div>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <div class="contact-panel" id="contact">
+          <h2>Contact Us</h2>
+          <div class="contact-list">
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16v16H4z" />
+                  <path d="m4 7 8 6 8-6" />
+                </svg>
+              </span>
+              <span>Email: dawson@dawnrisecamp.com</span>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.2A8.5 8.5 0 1 1 20 11.5Z" />
+                  <path d="M8.8 8.8c.4 3 2.4 5 5.4 5.4l1.4-1.4" />
+                </svg>
+              </span>
+              <span>WhatsApp: +86 155 8898 3078</span>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m22 2-7 20-4-9-9-4z" />
+                  <path d="M22 2 11 13" />
+                </svg>
+              </span>
+              <span>Telegram: @dawnrisecamp</span>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M8 10a5 4 0 1 0 0 8h.5L12 21l-.8-3H16a5 4 0 1 0 0-8" />
+                  <path d="M9 10a5 4 0 1 1 9.5 2.4" />
+                  <path d="M7.5 14h.01" />
+                  <path d="M13.5 14h.01" />
+                </svg>
+              </span>
+              <span>WeChat: daoshiqingfeng</span>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11Z" />
+                  <circle cx="12" cy="10" r="2.4" />
+                </svg>
+              </span>
+              <span>Qingdao, China</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span><strong>DawnRiseCamp</strong> Outdoor Gear OEM/ODM Manufacturing</span>
+      <span>Qingdao, China</span>
+    </div>
+  </footer>
 
   <script>
-    const menu = document.querySelector(".menu");
-    const nav = document.querySelector("#navLinks");
-    const scrollButtons = document.querySelectorAll("[data-scroll]");
-    const filters = document.querySelector(".filters");
-    const filterIndicator = document.querySelector(".filter-indicator");
-    const filterButtons = document.querySelectorAll("[data-filter]");
-    const posts = document.querySelectorAll(".post");
-    const form = document.querySelector("#subscribeForm");
-    const note = document.querySelector("#formNote");
+    document.querySelectorAll("[data-scroll-target]").forEach((control) => {
+      control.addEventListener("click", () => {
+        const targetId = control.getAttribute("data-scroll-target");
+        const target = targetId ? document.getElementById(targetId) : null;
 
-    menu.addEventListener("click", () => {
-      const open = menu.getAttribute("aria-expanded") === "true";
-      menu.setAttribute("aria-expanded", String(!open));
-      nav.classList.toggle("open", !open);
-    });
-
-    nav.addEventListener("click", (event) => {
-      if (event.target.closest("[data-scroll]")) {
-        menu.setAttribute("aria-expanded", "false");
-        nav.classList.remove("open");
-      }
-    });
-
-    scrollButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const target = document.getElementById(button.dataset.scroll);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (!target) {
+          return;
         }
-      });
-    });
 
-    const applyFilter = (button, index) => {
-      const filter = button.dataset.filter;
-      filterIndicator.style.transform = `translate3d(${index * 100}%, 0, 0)`;
-      filterButtons.forEach((item) => {
-        const active = item === button;
-        item.classList.toggle("active", active);
-        item.setAttribute("aria-selected", String(active));
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
       });
-      posts.forEach((post) => {
-        post.style.display = filter === "all" || post.dataset.category === filter ? "" : "none";
-      });
-    };
-
-    filterButtons.forEach((button, index) => {
-      button.addEventListener("click", () => {
-        applyFilter(button, index);
-      });
-    });
-
-    const initialFilter = new URLSearchParams(window.location.search).get("filter");
-    const initialIndex = Array.from(filterButtons).findIndex((button) => button.dataset.filter === initialFilter);
-    if (initialIndex > -1) {
-      applyFilter(filterButtons[initialIndex], initialIndex);
-    }
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      note.textContent = "You are on the list.";
-      form.reset();
     });
   </script>
 </body>
