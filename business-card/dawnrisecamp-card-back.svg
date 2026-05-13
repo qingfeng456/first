@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96mm" height="60mm" viewBox="0 0 960 600">
+  <defs>
+    <linearGradient id="deepForest" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10291d"/>
+      <stop offset="1" stop-color="#214932"/>
+    </linearGradient>
+    <linearGradient id="campOrange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9137"/>
+      <stop offset="1" stop-color="#df631a"/>
+    </linearGradient>
+    <filter id="lightShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#04150d" flood-opacity=".18"/>
+    </filter>
+  </defs>
+
+  <!-- 96 x 60 mm artboard includes 3 mm bleed. Trim size is 90 x 54 mm. -->
+  <rect width="960" height="600" fill="url(#deepForest)"/>
+  <rect x="30" y="30" width="900" height="540" fill="#f7f4ec"/>
+  <path d="M30 30 L930 30 L930 150 C742 178 572 159 404 130 C263 105 149 108 30 145 Z" fill="#173b29"/>
+  <path d="M30 118 C191 77 345 92 493 123 C637 153 783 151 930 107 L930 159 C778 201 633 199 486 169 C338 139 189 126 30 169 Z" fill="#ef7422"/>
+  <path d="M30 510 C170 463 311 463 451 492 C619 526 769 511 930 450 L930 570 L30 570 Z" fill="#173b29"/>
+  <path d="M30 539 C192 505 323 510 466 533 C636 561 788 552 930 507 L930 570 L30 570 Z" fill="#ef7422"/>
+
+  <rect x="30" y="30" width="900" height="540" fill="none" stroke="#d7ccbb" stroke-width="1" stroke-dasharray="9 7" opacity=".8"/>
+  <rect x="60" y="60" width="840" height="480" fill="none" stroke="#cabda9" stroke-width="1" stroke-dasharray="6 8" opacity=".35"/>
+
+  <image href="assets/company-logo.png" x="88" y="118" width="235" height="235" preserveAspectRatio="xMidYMid meet" filter="url(#lightShadow)"/>
+
+  <g transform="translate(370 128)">
+    <text x="0" y="0" font-family="Montserrat, Arial, sans-serif" font-size="46" font-weight="800" fill="#173827">YOUR NAME</text>
+    <text x="0" y="38" font-family="Arial, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#e5681f">Foreign Trade Manager | 外贸经理</text>
+    <rect x="0" y="68" width="400" height="4" fill="#e5681f"/>
+
+    <text x="0" y="122" font-family="Arial, Microsoft YaHei, sans-serif" font-size="22" fill="#173827">M  +86 000 0000 0000</text>
+    <text x="0" y="164" font-family="Arial, Microsoft YaHei, sans-serif" font-size="22" fill="#173827">E  sales@dawnrisecamp.com</text>
+    <text x="0" y="206" font-family="Arial, Microsoft YaHei, sans-serif" font-size="22" fill="#173827">W  www.dawnrisecamp.com</text>
+    <text x="0" y="248" font-family="Arial, Microsoft YaHei, sans-serif" font-size="22" fill="#173827">A  Your company address, China</text>
+  </g>
+
+  <g transform="translate(98 390)">
+    <text x="0" y="0" font-family="Arial, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#173827">Camping Tents</text>
+    <circle cx="159" cy="-7" r="5" fill="#e5681f"/>
+    <text x="176" y="0" font-family="Arial, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#173827">Outdoor Furniture</text>
+    <circle cx="366" cy="-7" r="5" fill="#e5681f"/>
+    <text x="383" y="0" font-family="Arial, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#173827">Camping Gear</text>
+  </g>
+
+  <g transform="translate(735 318)">
+    <rect x="0" y="0" width="120" height="120" fill="#fff" stroke="#173827" stroke-width="5"/>
+    <rect x="16" y="16" width="26" height="26" fill="#173827"/>
+    <rect x="78" y="16" width="26" height="26" fill="#173827"/>
+    <rect x="16" y="78" width="26" height="26" fill="#173827"/>
+    <rect x="55" y="54" width="14" height="14" fill="#e5681f"/>
+    <rect x="78" y="61" width="12" height="12" fill="#173827"/>
+    <rect x="57" y="82" width="12" height="24" fill="#173827"/>
+    <rect x="92" y="88" width="12" height="16" fill="#e5681f"/>
+    <text x="60" y="154" text-anchor="middle" font-family="Arial, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#173827">QR / WeChat</text>
+  </g>
+</svg>
