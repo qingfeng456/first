@@ -11,6 +11,26 @@
     content="DawnRiseCamp is a China-based outdoor products manufacturer specializing in OEM/ODM camping and outdoor gear solutions."
   />
   <title>DawnRiseCamp | Outdoor Gear OEM/ODM Manufacturing</title>
+  <script>
+    if (window.location.protocol === "file:") {
+      const localPreviewUrl = "http://127.0.0.1:4173/";
+      const controller = new AbortController();
+      const timeoutId = window.setTimeout(() => controller.abort(), 900);
+
+      fetch(localPreviewUrl, {
+        cache: "no-store",
+        mode: "no-cors",
+        signal: controller.signal,
+      })
+        .then(() => {
+          window.clearTimeout(timeoutId);
+          window.location.replace(localPreviewUrl);
+        })
+        .catch(() => {
+          window.clearTimeout(timeoutId);
+        });
+    }
+  </script>
   <style>
     :root {
       --green-950: #062719;
@@ -678,7 +698,7 @@
     <section class="section" id="capabilities">
       <div class="section-header">
         <h2>Reliable Manufacturing. End-to-End Support.</h2>
-        <p>OEM/ODM solutions for global brands, retailers, and distributors.</p>
+        <p>OEM/ODM supplier for trekking poles, camping wagons, tents, tarps, folding furniture, and outdoor accessories.</p>
         <div class="section-rule" aria-hidden="true"></div>
       </div>
 
